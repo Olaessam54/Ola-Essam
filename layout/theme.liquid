@@ -207,6 +207,7 @@ customcss
       {% comment %}
     bootstrap js
     {% endcomment %}
-    {{ 'bootstrap.min.js' | asset_url | stylesheet_tag }}
+    {{ 'bootstrap.min.js' | asset_url | script_tag }}
+    {{ 'product.js' | asset_url | script_tag }}
   </body>
 </html>

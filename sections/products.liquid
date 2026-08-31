@@ -1,0 +1,95 @@
+
+
+<div class="container">
+  <div class="row g-3 product-list">
+
+    {% for product in collections.all.products %}
+
+      <div class="col-12 col-md-4">
+
+        <div class="product position-relative">
+
+          <img
+            src="{{ product.featured_image | image_url: width: 600 }}"
+            alt="{{ product.title }}"
+            class="w-100 d-block"
+          >
+
+          <div
+            class="product-icon position-absolute top-0 end-0 m-3"
+            data-product="{{ forloop.index0 }}"
+          >
+            🛒
+          </div>
+
+          <div
+            class="product-details position-absolute bg-white shadow p-4"
+            data-details="{{ forloop.index0 }}"
+            style="
+              top: -50px;
+              left: 0;
+              width: 100%;
+              z-index: 10;
+              display: none;
+            "
+          >
+            <h4>{{ product.title }}</h4>
+
+            <p>
+              {{ product.price | money }}
+            </p>
+
+            <div>
+              {{ product.description }}
+            </div>
+
+            <label>Color</label>
+
+            <select class="form-select">
+              {% for option in product.options_with_values %}
+                {% if option.name == 'Color' %}
+                  {% for value in option.values %}
+                    <option value="{{ value }}">
+                      {{ value }}
+                    </option>
+                  {% endfor %}
+                {% endif %}
+              {% endfor %}
+            </select>
+
+            <label class="mt-3">Size</label>
+
+            <select class="form-select">
+              {% for option in product.options_with_values %}
+                {% if option.name == 'Size' %}
+                  {% for value in option.values %}
+                    <option value="{{ value }}">
+                      {{ value }}
+                    </option>
+                  {% endfor %}
+                {% endif %}
+              {% endfor %}
+            </select>
+
+            <button class="btn btn-dark w-100 mt-3">
+              Add To Cart →
+            </button>
+
+          </div>
+
+        </div>
+
+        <h4 class="mt-3">
+          {{ product.title }}
+        </h4>
+
+        <p>
+          {{ product.price | money }}
+        </p>
+
+      </div>
+
+    {% endfor %}
+
+  </div>
+</div>
