@@ -20,6 +20,7 @@ mainsection
 <div class="row">
 <div class="giftguid col-12 col-md-5 d-flex flex-column justify-content-center p-5 gap-4">
 <h2>{{settings.head}}</h2>
+<p class="d-none mobilepargraph">Discover Joy: Your Ultimate Holiday Gift Destination.</p>
 <p>{{settings.giftpar}}</p>
 <a href ="{{settings.btnurl}}" class="d-flex justify-content-center align-items-center gap-2" > {{settings.btntext}}
 <svg width="27" height="12" viewBox="0 0 27 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -104,6 +105,24 @@ font-family: "Jost" ,sans-serif;
     line-height:13.42px;
 
  }
+@media screen and (max-width: 767px) {
+
+  p.mobilepargraph {
+    display:block;
+  }
+  a{
+    display:none;
+  }
+  h4{
+    text:center;
+    
+  }
+
+}
+
+
+
+
 
 {% endstyle %}
 {% schema %}
