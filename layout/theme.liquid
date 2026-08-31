@@ -15,6 +15,18 @@
     {%- endif -%}
 
     {% comment %}
+    bootstrap css
+    {% endcomment %}
+
+    {{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
+{% comment %}
+customcss
+{% endcomment %}
+    {{ 'style.css' | asset_url | stylesheet_tag }}
+
+
+    {% comment %}
+
       Opt into cross-document (MPA) view transitions and hold first paint until #MainContent
       parses, so the transition runs consistently.
       Both are gated on the same settings as the view-transitions.js opt-out switch (see snippets/scripts.liquid).
@@ -191,5 +203,10 @@
     {% if settings.quick_add or settings.mobile_quick_add %}
       {% render 'quick-add-modal' %}
     {% endif %}
+
+      {% comment %}
+    bootstrap js
+    {% endcomment %}
+    {{ 'bootstrap.min.js' | asset_url | stylesheet_tag }}
   </body>
 </html>

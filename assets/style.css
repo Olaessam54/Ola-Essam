@@ -1,0 +1,14 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+body{
+    font-family: "Jost" ,sans-serif;
+}
+.shopify-section,
+ .shopify-section-group-header-group{
+font-family: "Jost" ,sans-serif;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ background-color: #F5F5F5;
+ 
+ }
