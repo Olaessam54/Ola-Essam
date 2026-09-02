@@ -27,9 +27,15 @@
         "alt": "",
         "endofsectionpargraph": "Discover our collection and find the perfect gift."
       }
+    },
+    "products_ByAbtG": {
+      "type": "products",
+      "name": "product section",
+      "settings": {}
     }
   },
   "order": [
-    "bannersection_3TjLmU"
+    "bannersection_3TjLmU",
+    "products_ByAbtG"
   ]
 }
