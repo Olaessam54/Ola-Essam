@@ -25,8 +25,14 @@ icons.forEach((icon) => {
   icon.addEventListener("click", () => {
 
     const index = icon.dataset.product;
+    
+
+console.log("index =", index);
+console.log("productsData =", productsData);
+console.log("product =", productsData[index]);
 
     const product = productsData[index];
+    
 
     console.log(product);
 
