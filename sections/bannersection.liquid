@@ -50,11 +50,11 @@
 
     </div>
 
-    <div class="shop">
+    <div class="shop ">
 
-      <div class="row">
+      <div class="row d-flex">
 
-        <div class="giftguid col-12 col-md-5 d-flex flex-column justify-content-center p-5 gap-3">
+        <div class="giftguid d-flex flex-column justify-content-center p-4 gap-2">
 
           <h2>{{ settings.head }}</h2>
 
@@ -83,7 +83,7 @@
 
         </div>
 
-        <div class="subimage col-12 col-md-7">
+        <div class="subimage">
 
           <img
             src="{{ 'Frame (2).png' | asset_url }}"
@@ -137,7 +137,7 @@
 }
 
 .mainimage a {
-  margin-top: -100px;
+
   text-align: center;
 }
 
@@ -181,7 +181,7 @@
 
 .giftguid h2 {
   font-weight: 500;
-  font-size: 70px;
+  font-size: 50px;
   line-height: 100%;
   font-family: "Jost", sans-serif;
 }
@@ -192,11 +192,23 @@
   line-height: 140%;
   font-family: "Jost", sans-serif;
 }
+.giftguid{width:40%;}
 
 div.endofsection {
   background-color: #F5F5F5;
   padding: 10px 50px;
 }
+.subimage{
+    width:60%;
+}
+
+
+.subimage img{
+    width:100%;
+    object-fit:cover;
+    
+}
+
 
 div.endofsection p {
   font-Size: 16px;
@@ -215,9 +227,34 @@ div.endofsection p {
     display: none;
   }
 
+ .mainimage img {
+   width:100%;
+   width:375px;
+   height:264px;
+
+ }
+
+
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
+    .shop{
+        height:400px;
+    }
+    .giftguid{width:50%;}
+
+
+.subimage{
+    width:50%;
+}
+
+
+.subimage img{
+    width:100%;
+    object-fit:cover;
+    height:402px;
+}
 
   .giftguid {
     padding: 15px;

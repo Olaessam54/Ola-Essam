@@ -10,6 +10,7 @@
 
     <div class="row g-3 product-list">
 
+      <!-- Products -->
       {% for product in collections.all.products %}
 
         <div class="col-12 col-md-4">
@@ -17,7 +18,7 @@
           <div class="product position-relative">
 
             <img
-              src="{{ product.featured_image | image_url: width: 600}}"
+              src="{{ product.featured_image | image_url: width: 600 }}"
               alt="{{ product.title }}"
               class="w-100 d-block"
             >
@@ -26,88 +27,37 @@
               class="product-icon position-absolute top-0 end-0 m-3"
               data-product="{{ forloop.index0 }}"
             >
-               <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="11" cy="11" r="11" fill="#F8F8F8" fill-opacity="0.9"/>
-<path d="M11.3457 7.04175V15.5033" stroke="black" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
-<path d="M7.11523 11.2725H15.5768" stroke="black" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
-</svg>
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 22 22"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="11"
+                  cy="11"
+                  r="11"
+                  fill="#F8F8F8"
+                  fill-opacity="0.9"
+                />
 
+                <path
+                  d="M11.3457 7.04175V15.5033"
+                  stroke="black"
+                  stroke-width="1.5"
+                  stroke-linecap="square"
+                  stroke-linejoin="round"
+                />
 
-            </div>
-
-            <div
-              class="product-details"
-              data-details="{{ forloop.index0 }}"
-            >
-             <button class="close-product">×</button>
-             
-
-              <h4>{{ product.title }}</h4>
-
-              <p>
-                {{ product.price | money }}
-              </p>
-
-              <div>
-                {{ product.description }}
-              </div>
-
-              <!-- Color -->
-
-              <label>Color</label>
-
-              <select class="form-select">
-
-                {% for option in product.options_with_values %}
-
-                  {% if option.name == 'Color' %}
-
-                    {% for value in option.values %}
-
-                      <option value="{{ value }}">
-                        {{ value }}
-                      </option>
-
-                    {% endfor %}
-
-                  {% endif %}
-
-                {% endfor %}
-
-              </select>
-
-
-              <!-- Size -->
-
-              <label class="mt-3">
-                Size
-              </label>
-
-              <select class="form-select">
-
-                {% for option in product.options_with_values %}
-
-                  {% if option.name == 'Size' %}
-
-                    {% for value in option.values %}
-
-                      <option value="{{ value }}">
-                        {{ value }}
-                      </option>
-
-                    {% endfor %}
-
-                  {% endif %}
-
-                {% endfor %}
-
-              </select>
-
-
-              <button class="btn btn-dark w-100 mt-3">
-                Add To Cart →
-              </button>
-
+                <path
+                  d="M7.11523 11.2725H15.5768"
+                  stroke="black"
+                  stroke-width="1.5"
+                  stroke-linecap="square"
+                  stroke-linejoin="round"
+                />
+              </svg>
             </div>
 
           </div>
@@ -116,70 +66,352 @@
 
       {% endfor %}
 
+
+      <!-- ONE Product Details Card -->
+
+      <div class="product-details">
+
+        <button class="close-product">×</button>
+
+        <div class="d-flex">
+
+          <div class="w-50">
+            <img
+              class="details-image w-100"
+              src=""
+              alt=""
+            >
+          </div>
+
+          <div class="d-flex flex-column w-50">
+
+            <h4 class="details-title"></h4>
+
+            <p class="details-price"></p>
+
+            <div class="des details-description"></div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Color -->
+
+        <label>Color</label>
+
+        <select class="form-select details-color">
+        </select>
+
+
+        <!-- Size -->
+
+        <div class="custom-options d-flex flex-column gap-1 mt-3">
+
+          <label>
+            Size
+          </label>
+
+          <div class="selectbox w-100 d-flex justify-content-center align-items-center">
+
+            <input
+              type="text"
+              placeholder="Choose Your Size"
+              class="size-input color-black py-2 px-2 rounded-0"
+              readonly
+            >
+
+            <button
+              type="button"
+              class="bg-white border-0 arrow"
+            >
+
+              <svg
+                width="15"
+                height="9"
+                viewBox="0 0 15 9"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="selectarrow"
+              >
+
+                <path
+                  d="M1.06067 1.06067L7.06067 7.06067L13.0607 1.06067"
+                  stroke="black"
+                  stroke-width="1.5"
+                  stroke-linecap="square"
+                />
+
+              </svg>
+
+            </button>
+
+          </div>
+
+          <div class="options">
+          </div>
+
+        </div>
+
+
+        <button class="Add w-100 mt-4">
+          Add To Cart →
+        </button>
+
+      </div>
+
     </div>
 
   </div>
 
 </div>
 
-
 {% style %}
-
 .product-section-title {
-    font-size: 36px;
-    font-weight: 400;
-    line-height: 120%;
-    font-family: 'Lustria', serif;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 120%;
+  font-family: 'Lustria', serif;
+}
+
+
+/* =========================
+   Products
+========================= */
+
+.product-list {
+  position: relative;
 }
 
 .product {
-    position: relative;
+  position: relative;
 }
 
 .product img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
 }
 
 .product-icon {
-    z-index: 20;
-    cursor: pointer;
+  z-index: 20;
+  cursor: pointer;
 }
 
+
+/* =========================
+   Product Details Card
+========================= */
+
 .product-details {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    display: none;
-    background: white;
-    padding: 20px;
+  position: absolute;
+  bottom: 50px;
+  right: 20px;
+
+  width: 331px;
+  height: 400px;
+
+  z-index: 50;
+
+  display: none;
+
+  background-color: white;
+  padding: 20px;
 }
 
 .product-details.active {
-    display: block;
+  display: block;
 }
+
+
+/* =========================
+   Product Information
+========================= */
+
+.product-details h4 {
+  font-size: 12px;
+  font-weight: 300;
+  font-family: 'Jost', sans-serif;
+  line-height: 120%;
+}
+
+.product-details p {
+  font-size: 12px;
+  font-weight: 300;
+  font-family: 'Lustria', sans-serif;
+  line-height: 120%;
+}
+
+.product-details div.des {
+  font-size: 12px;
+  font-weight: 300;
+  font-family: 'Jost', sans-serif;
+  line-height: 100%;
+  letter-spacing: -1%;
+}
+
+
+/* =========================
+   Details Image
+========================= */
+
+.product-details .details-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+
+/* =========================
+   Close Button
+========================= */
 
 .close-product {
-    position: absolute;
-    top: 10px;
-    right: 15px;
+  position: absolute;
 
-    border: none;
-    background: transparent;
+  top: 10px;
+  right: 15px;
 
-    font-size: 25px;
-    cursor: pointer;
+  border: none;
+  background: transparent;
+
+  font-size: 25px;
+  cursor: pointer;
+
+  z-index: 10;
 }
 
-.product-details select option:hover {
-    background-color: black;
-    color: white;
+
+/* =========================
+   Color
+========================= */
+
+.product-details .details-color {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 0;
 }
 
+
+/* =========================
+   Size
+========================= */
+
+.custom-options {
+  width: 100%;
+}
+
+.custom-options input {
+  width: 80%;
+
+  padding: 10px;
+
+  outline: none !important;
+
+  border: 1px solid black;
+
+  color: black !important;
+
+  background-color: white;
+}
+
+.selectbox {
+  height: 43px;
+}
+
+
+/* =========================
+   Arrow
+========================= */
+
+.product-details button.arrow {
+  width: 20%;
+  height: 43px;
+
+  padding: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: white;
+
+  border: 1px solid black;
+  border-left: none;
+
+  cursor: pointer;
+}
+
+.product-details button.arrow svg {
+  transition: 0.3s;
+}
+
+.product-details button.arrow.open svg {
+  transform: rotate(180deg);
+}
+
+
+/* =========================
+   Size Options
+========================= */
+
+div.options {
+  display: none;
+
+  width: 100%;
+
+  border: 1px solid black;
+  border-top: none;
+
+  background-color: white;
+}
+
+div.options.open {
+  display: flex;
+
+  flex-direction: column;
+}
+
+div.option {
+  padding: 10px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+}
+
+div.option:hover {
+  background-color: black;
+  color: white;
+}
+
+
+/* =========================
+   Add To Cart
+========================= */
+
+.product-details button.Add {
+  width: 100%;
+
+  background-color: black;
+  color: white;
+
+  text-transform: uppercase;
+
+  font-size: 16px;
+
+  padding: 10px 50px;
+
+  border: none;
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   Mobile
+========================= */
 
 @media screen and (max-width: 767px) {
 
@@ -188,11 +420,25 @@
     font-weight: 400;
     line-height: 120%;
     font-family: 'Lustria', serif;
-    text-align:center;
-}
- }
+    text-align: center;
+  }
 
+  .product-details {
+    width: calc(100% - 30px);
+
+    right: 15px;
+    bottom: 20px;
+  }
+
+}
 {% endstyle %}
+
+
+
+
+
+
+
 
 
 {% schema %}
