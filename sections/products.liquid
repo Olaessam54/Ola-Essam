@@ -1,95 +1,216 @@
+<div class="pt-5 d-flex flex-column bg-white gap-2 w-100">
+
+  <div class="p-3">
+    <p class="product-section-title">
+      Tisso vison in the wild
+    </p>
+  </div>
+
+  <div class="p-3">
+
+    <div class="row g-3 product-list">
+
+      {% for product in collections.all.products %}
+
+        <div class="col-12 col-md-4">
+
+          <div class="product position-relative">
+
+            <img
+              src="{{ product.featured_image | image_url: width: 600}}"
+              alt="{{ product.title }}"
+              class="w-100 d-block"
+            >
+
+            <div
+              class="product-icon position-absolute top-0 end-0 m-3"
+              data-product="{{ forloop.index0 }}"
+            >
+               <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="11" cy="11" r="11" fill="#F8F8F8" fill-opacity="0.9"/>
+<path d="M11.3457 7.04175V15.5033" stroke="black" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
+<path d="M7.11523 11.2725H15.5768" stroke="black" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"/>
+</svg>
 
 
-<div class="container">
-  <div class="row g-3 product-list">
-
-    {% for product in collections.all.products %}
-
-      <div class="col-12 col-md-4">
-
-        <div class="product position-relative">
-
-          <img
-            src="{{ product.featured_image | image_url: width: 600 }}"
-            alt="{{ product.title }}"
-            class="w-100 d-block"
-          >
-
-          <div
-            class="product-icon position-absolute top-0 end-0 m-3"
-            data-product="{{ forloop.index0 }}"
-          >
-            🛒
-          </div>
-
-          <div
-            class="product-details position-absolute bg-white shadow p-4"
-            data-details="{{ forloop.index0 }}"
-            style="
-              top: -50px;
-              left: 0;
-              width: 100%;
-              z-index: 10;
-              display: none;
-            "
-          >
-            <h4>{{ product.title }}</h4>
-
-            <p>
-              {{ product.price | money }}
-            </p>
-
-            <div>
-              {{ product.description }}
             </div>
 
-            <label>Color</label>
+            <div
+              class="product-details"
+              data-details="{{ forloop.index0 }}"
+            >
+             <button class="close-product">×</button>
+             
 
-            <select class="form-select">
-              {% for option in product.options_with_values %}
-                {% if option.name == 'Color' %}
-                  {% for value in option.values %}
-                    <option value="{{ value }}">
-                      {{ value }}
-                    </option>
-                  {% endfor %}
-                {% endif %}
-              {% endfor %}
-            </select>
+              <h4>{{ product.title }}</h4>
 
-            <label class="mt-3">Size</label>
+              <p>
+                {{ product.price | money }}
+              </p>
 
-            <select class="form-select">
-              {% for option in product.options_with_values %}
-                {% if option.name == 'Size' %}
-                  {% for value in option.values %}
-                    <option value="{{ value }}">
-                      {{ value }}
-                    </option>
-                  {% endfor %}
-                {% endif %}
-              {% endfor %}
-            </select>
+              <div>
+                {{ product.description }}
+              </div>
 
-            <button class="btn btn-dark w-100 mt-3">
-              Add To Cart →
-            </button>
+              <!-- Color -->
+
+              <label>Color</label>
+
+              <select class="form-select">
+
+                {% for option in product.options_with_values %}
+
+                  {% if option.name == 'Color' %}
+
+                    {% for value in option.values %}
+
+                      <option value="{{ value }}">
+                        {{ value }}
+                      </option>
+
+                    {% endfor %}
+
+                  {% endif %}
+
+                {% endfor %}
+
+              </select>
+
+
+              <!-- Size -->
+
+              <label class="mt-3">
+                Size
+              </label>
+
+              <select class="form-select">
+
+                {% for option in product.options_with_values %}
+
+                  {% if option.name == 'Size' %}
+
+                    {% for value in option.values %}
+
+                      <option value="{{ value }}">
+                        {{ value }}
+                      </option>
+
+                    {% endfor %}
+
+                  {% endif %}
+
+                {% endfor %}
+
+              </select>
+
+
+              <button class="btn btn-dark w-100 mt-3">
+                Add To Cart →
+              </button>
+
+            </div>
 
           </div>
 
         </div>
 
-        <h4 class="mt-3">
-          {{ product.title }}
-        </h4>
+      {% endfor %}
 
-        <p>
-          {{ product.price | money }}
-        </p>
-
-      </div>
-
-    {% endfor %}
+    </div>
 
   </div>
+
 </div>
+
+
+{% style %}
+
+.product-section-title {
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 120%;
+    font-family: 'Lustria', serif;
+}
+
+.product {
+    position: relative;
+}
+
+.product img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+.product-icon {
+    z-index: 20;
+    cursor: pointer;
+}
+
+.product-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    display: none;
+    background: white;
+    padding: 20px;
+}
+
+.product-details.active {
+    display: block;
+}
+
+.close-product {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.product-details select option:hover {
+    background-color: black;
+    color: white;
+}
+
+
+@media screen and (max-width: 767px) {
+
+  .product-section-title {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 120%;
+    font-family: 'Lustria', serif;
+    text-align:center;
+}
+ }
+
+{% endstyle %}
+
+
+{% schema %}
+{
+"name":"product section",
+"settings":[],
+"presets":[
+  {
+    "name":"product section"
+  }
+]
+
+
+
+}
+
+
+
+
+
+{% endschema %}

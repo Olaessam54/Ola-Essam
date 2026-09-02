@@ -1,230 +1,498 @@
 
+{% assign settings = section.settings %}
 
-{% assign settings = section.settings  %}
+<section class="{{ section.id }}">
+
+  {% comment %}
+    Navbar
+  {% endcomment %}
+
+  <div class="header d-flex justify-content-between align-items-center">
+
+    <!-- Mobile Menu -->
+    <div class="menulist">
+
+      <div class="menu-title d-flex justify-content-center align-items-center bg-white">
+
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 15 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="cancel"
+        >
+          <path
+            d="M1 13.9994L13.7279 1.2715"
+            stroke="black"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M1 1L13.7279 13.7279"
+            stroke="black"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+
+        <h5>{{ settings.logo }}</h5>
+
+      </div>
+
+
+      <div class="btn-logo d-flex flex-column">
+
+        <p class="m-0">
+          {{ settings.headerpar }}
+        </p>
+
+        <a
+          href="{{ settings.buttonurl }}"
+          class="d-flex justify-content-center align-items-center gap-2"
+        >
+          {{ settings.buttontext }}
+
+          <span>
+            <svg
+              width="26"
+              height="12"
+              viewBox="0 0 26 12"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.75 4.77298L7.37629e-08 4.77298L-7.37629e-08 6.27298L0.75 6.27298L0.75 4.77298ZM25.2803 6.05331C25.5732 5.76042 25.5732 5.28554 25.2803 4.99265L20.5074 0.21968C20.2145 -0.073213 19.7396 -0.0732131 19.4467 0.21968C19.1538 0.512574 19.1538 0.987447 19.4467 1.28034L23.6893 5.52298L19.4467 9.76562C19.1538 10.0585 19.1538 10.5334 19.4467 10.8263C19.7396 11.1192 20.2145 11.1192 20.5074 10.8263L25.2803 6.05331ZM0.75 6.27298L24.75 6.27298L24.75 4.77298L0.75 4.77298Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- Mobile Menu Icon -->
+    <svg
+      width="20"
+      height="12"
+      viewBox="0 0 20 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class="menu d-block d-md-none"
+    >
+      <path
+        d="M1 6H19"
+        stroke="black"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M1 1H19"
+        stroke="black"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M1 11H19"
+        stroke="black"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+
+
+    <!-- Logo -->
+    <h4>{{ settings.logo }}</h4>
+
+
+    <!-- Paragraph -->
+    <p class="m-0 d-none d-md-inline">
+      {{ settings.headerpar }}
+    </p>
+
+
+    <!-- Button -->
+    <a
+      href="{{ settings.buttonurl }}"
+      class="header-button d-none d-md-flex justify-content-center align-items-center gap-2"
+    >
+      {{ settings.buttontext }}
+
+      <span>
+        <svg
+          width="26"
+          height="12"
+          viewBox="0 0 26 12"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0.75 4.77298L7.37629e-08 4.77298L-7.37629e-08 6.27298L0.75 6.27298L0.75 4.77298ZM25.2803 6.05331C25.5732 5.76042 25.5732 5.28554 25.2803 4.99265L20.5074 0.21968C20.2145 -0.073213 19.7396 -0.0732131 19.4467 0.21968C19.1538 0.512574 19.1538 0.987447 19.4467 1.28034L23.6893 5.52298L19.4467 9.76562C19.1538 10.0585 19.1538 10.5334 19.4467 10.8263C19.7396 11.1192 20.2145 11.1192 20.5074 10.8263L25.2803 6.05331ZM0.75 6.27298L24.75 6.27298L24.75 4.77298L0.75 4.77298Z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+
+    </a>
+
+  </div>
+
+</section>
 
 
 {% comment %}
-navbar
+  Navbar Styles
 {% endcomment %}
-<div class="header container d-flex justify-content-between align-items-center">
-<h4>{{settings.logo}}</h4>
-<p class="m-0">{{settings.headerpar}}</p>
-<a href ="{{settings.buttonurl}}" class="d-flex justify-content-center align-items-center gap-2" > {{settings.buttontext}}
- <span>
-<svg width="26" height="12" viewBox="0 0 26 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.75 4.77298L7.37629e-08 4.77298L-7.37629e-08 6.27298L0.75 6.27298L0.75 4.77298ZM25.2803 6.05331C25.5732 5.76042 25.5732 5.28554 25.2803 4.99265L20.5074 0.21968C20.2145 -0.073213 19.7396 -0.0732131 19.4467 0.21968C19.1538 0.512574 19.1538 0.987447 19.4467 1.28034L23.6893 5.52298L19.4467 9.76562C19.1538 10.0585 19.1538 10.5334 19.4467 10.8263C19.7396 11.1192 20.2145 11.1192 20.5074 10.8263L25.2803 6.05331ZM0.75 6.27298L24.75 6.27298L24.75 4.77298L0.75 4.77298L0.75 6.27298Z" fill="black"/>
-</svg>
-</span> </a>
-
-</div>
 
 {% style %}
-.header{
-    margin:0;
-    width:100%;
-    background-color:{{settings.backgroundcolor}};
-     padding:{{settings.padding}}px;
-}
-.header h4{
-margin:0;
-color:{{settings.logocolor}};
-font-size:{{settings.logofontsize}}px;
-text-transform:uppercase;
-font-weight:700;
-letter-spacing:1PX ;
-}
 
- .header p{
-  line-height: 13.42px;
-  font-size:16px;
-  color:black;
- }
-.header a{
-    border:2px solid transparent;
-    text-transform:uppercase;
-    background-color:#FFF544;
-    color:{{settings.buttontextcolor}};
-    background-color:{{settings.buttonbgcolor}};
-    padding:10px 30px;
-    position:relative;
-    overflow:hidden;
-    z-index:1;
-    transition:.5s;
-    
+  /* =========================
+     Navbar
+  ========================= */
 
-}
-.header a::before{
-  content:"";
-  width:100%;
-  height:100%;
-  top:0;
-  left:-100%;
- background-color:black;
- position:absolute;
-z-index:-1;
-transition:.5s;
-
-
-}
-.header a:hover{
-color:white;
-border:black;
-fill:white;
-}
-.header a:hover span{
-color:white;
-
-}
-.header a:hover::before{
-left:0;
-border:black;
-}
-a svg{
-    color:currentColor;
-}
-
-
-@media screen and (max-width: 767px) {
-
-  p {
-    display:none;
-  }
-  a{
-    display:none;
-  }
-  h4{
-    text:center;
-    
+  .{{ section.id }} .header {
+    margin: 0;
+    width: 100%;
+    background-color: {{ settings.backgroundcolor }};
+    padding: {{ settings.padding }}px;
+    gap: 40px;
   }
 
-}
+
+  /* =========================
+     Logo
+  ========================= */
+
+  .{{ section.id }} .header h4 {
+    margin: 0;
+    color: {{ settings.logocolor }};
+    font-size: {{ settings.logofontsize }}px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
 
 
+  /* =========================
+     Paragraph
+  ========================= */
 
-{% endstyle %} 
+  .{{ section.id }} .header p {
+    margin: 0;
+    line-height: 13.42px;
+    font-size: {{ settings.addressfontsize }}px;
+    color: {{ settings.parcolor }};
+  }
 
 
+  /* =========================
+     Button
+  ========================= */
+
+  .{{ section.id }} .header-button {
+    text-transform: uppercase;
+    color: {{ settings.buttontextcolor }};
+    background-color: {{ settings.buttonbgcolor }};
+    font-size: {{ settings.buttonfontsize }}px;
+    padding: 10px 30px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+    text-decoration: none;
+  }
+
+
+  .{{ section.id }} .header-button::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background-color: black;
+    position: absolute;
+    z-index: -1;
+    transition: 0.5s;
+  }
+
+
+  .{{ section.id }} .header-button:hover {
+    color: white;
+  }
+
+
+  .{{ section.id }} .header-button:hover span {
+    color: white;
+  }
+
+
+  .{{ section.id }} .header-button:hover::before {
+    left: 0;
+  }
+
+
+  .{{ section.id }} .header-button svg {
+    color: currentColor;
+  }
+
+
+  /* =========================
+     Mobile Menu
+  ========================= */
+
+  .{{ section.id }} .menulist {
+    display: none;
+  }
+
+
+  .{{ section.id }} .menulist.active {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    z-index: 999;
+  }
+
+
+  .{{ section.id }} .menu-title {
+    padding: 23px 16px;
+    gap: 78px;
+  }
+
+
+  .{{ section.id }} .menu-title h5 {
+    margin: 0;
+  }
+
+
+  .{{ section.id }} .cancel {
+    cursor: pointer;
+  }
+
+
+  .{{ section.id }} .btn-logo {
+    background-color: #F2F2F2;
+    padding: 25px 65.5px;
+    gap: 16px;
+  }
+
+
+  .{{ section.id }} .btn-logo a {
+    color: {{ settings.buttontextcolor }};
+    background-color: {{ settings.buttonbgcolor }};
+    font-size: {{ settings.buttonfontsize }}px;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+
+  /* =========================
+     Mobile
+  ========================= */
+
+  @media screen and (max-width: 767px) {
+
+    .{{ section.id }} .header {
+      padding: {{ settings.padding }}px 16px;
+    }
+
+    .{{ section.id }} .header h4 {
+      font-size: {{ settings.logofontsize }}px;
+    }
+
+  }
+
+{% endstyle %}
+
+
+<script>
+
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const section = document.querySelector(".{{ section.id }}");
+
+    if (!section) return;
+
+    const menu = section.querySelector(".menu");
+    const menulist = section.querySelector(".menulist");
+    const cancel = section.querySelector(".cancel");
+
+    if (menu && menulist) {
+      menu.addEventListener("click", function () {
+        menulist.classList.add("active");
+      });
+    }
+
+    if (cancel && menulist) {
+      cancel.addEventListener("click", function () {
+        menulist.classList.remove("active");
+      });
+    }
+
+  });
+
+</script>
 
 
 {% schema %}
+
 {
-"name":"navbar",
-"settings":[
-{"type":"header",
-"content":"navbar"},
+  "name": "Navbar",
 
-{"type":"color",
-"id":"backgroundcolor",
-"label":"navbarbgcolor"
-},
-{"type":"range",
-"id":"padding",
-"label":"Padding",
-"min":10,
-"max":40,
-"step":2,
-"unit":"px",
-"default":14
+  "settings": [
 
-
-},
     {
-"type":"header",
-"content":"navbarlogo"
-},
-{
-    "type":"text",
-    "id":"logo",
-    "label":"logoName",
-    "default":"tisso vision"
+      "type": "header",
+      "content": "Navbar"
+    },
 
-},
-{
-    "type":"color",
-    "id":"logocolor",
-    "label":"logoColor"
-},
-{
-"type":"range",
-"id" :"logofontsize",
-"label":"fontsize",
-"min":16,
-"max":75,
-"step":1,
-"unit":"px",
-"default":16
-},
+    {
+      "type": "color",
+      "id": "backgroundcolor",
+      "label": "Navbar Background Color",
+      "default": "#F7F7F7"
+    },
 
-{
-"type":"header",
-"content":"navbarbutton"
-},
-
-{
-    "type":"text",
-    "id":"buttontext",
-    "label":"buttonName",
-    "default":"choose gift"
-
-},
-{
-    "type":"color",
-    "id":"buttontextcolor",
-    "label":"textbuttonColor"
-},
-{
-    "type":"color",
-    "id":"buttonbgcolor",
-    "label":"buttonbgColor"
-},
-
-{
-    "type":"url",
-    "id":"buttonurl",
-    "label":"buttonlink"
-},
-
-{"type":"range",
-"id" :"buttonfontsize",
-"label":"fontsize",
-"min":16,
-"max":75,
-"step":1,
-"unit":"px",
-"default":16
-},
-
-{
-"type":"header",
-"content":"navbarpargraph"
-},
-{
-    "type":"textarea",
-    "id":"headerpar",
-    "label":"navbarpar",
-    "default":"Find the ideal gift for your loved ones."
-
-},
-{
-    "type":"color",
-    "id":"parcolor",
-    "label":"addressColor"
-},
-
-{"type":"range",
-"id" :"addressfontsize",
-"label":"fontsize",
-"min":16,
-"max":75,
-"step":1,
-"unit":"px",
-"default":40
-}],
- "presets":[{
-  "name":"navbar"
- }]
+    {
+      "type": "range",
+      "id": "padding",
+      "label": "Padding",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 14
+    },
 
 
+    {
+      "type": "header",
+      "content": "Navbar Logo"
+    },
+
+    {
+      "type": "text",
+      "id": "logo",
+      "label": "Logo Name",
+      "default": "Tisso Vision"
+    },
+
+    {
+      "type": "color",
+      "id": "logocolor",
+      "label": "Logo Color",
+      "default": "#000000"
+    },
+
+    {
+      "type": "range",
+      "id": "logofontsize",
+      "label": "Logo Font Size",
+      "min": 16,
+      "max": 75,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+
+
+    {
+      "type": "header",
+      "content": "Navbar Button"
+    },
+
+    {
+      "type": "text",
+      "id": "buttontext",
+      "label": "Button Name",
+      "default": "Choose Gift"
+    },
+
+    {
+      "type": "color",
+      "id": "buttontextcolor",
+      "label": "Button Text Color",
+      "default": "#000000"
+    },
+
+    {
+      "type": "color",
+      "id": "buttonbgcolor",
+      "label": "Button Background Color",
+      "default": "#FFF544"
+    },
+
+    {
+      "type": "url",
+      "id": "buttonurl",
+      "label": "Button Link"
+    },
+
+    {
+      "type": "range",
+      "id": "buttonfontsize",
+      "label": "Button Font Size",
+      "min": 16,
+      "max": 75,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+
+
+    {
+      "type": "header",
+      "content": "Navbar Paragraph"
+    },
+
+    {
+      "type": "textarea",
+      "id": "headerpar",
+      "label": "Navbar Paragraph",
+      "default": "Find the ideal gift for your loved ones."
+    },
+
+    {
+      "type": "color",
+      "id": "parcolor",
+      "label": "Paragraph Color",
+      "default": "#000000"
+    },
+
+    {
+      "type": "range",
+      "id": "addressfontsize",
+      "label": "Paragraph Font Size",
+      "min": 12,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    }
+
+  ],
+
+  "presets": [
+    {
+      "name": "Navbar"
+    }
+  ]
 }
+
 {% endschema %}
+
+
  

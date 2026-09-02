@@ -1,4 +1,5 @@
 const icons = document.querySelectorAll(".product-icon");
+const closeButtons = document.querySelectorAll(".close-product");
 
 icons.forEach((icon) => {
 
@@ -11,6 +12,19 @@ icons.forEach((icon) => {
         );
 
         card.style.display = "block";
+
+    });
+
+});
+
+
+closeButtons.forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+        const card = button.closest(".product-details");
+
+        card.style.display = "none";
 
     });
 

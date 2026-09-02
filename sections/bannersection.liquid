@@ -1,290 +1,398 @@
+{% assign settings = section.settings %}
 
+<section class="{{ section.id }}">
 
+  {% comment %}
+    mainsection
+  {% endcomment %}
 
+  <div class="mainsec">
 
+    <div class="mobilescreen d-flex justify-content-center align-items-center d-md-none">
 
+      <div class="mt-5 mb-3 d-flex flex-column justify-content-center align-items-center gap-4">
 
+        <h2>{{ settings.head }}</h2>
 
-{% assign settings = section.settings  %}
+        <p>Discover Joy: Your Ultimate Holiday Gift Destination.</p>
 
-<section class="{{section.id}}">
+      </div>
 
-{% comment %}
-mainsection
-{% endcomment %}
-<div class="mainsec">
-<div class="mainimage">
-<img src="{{'Frame (1).png' | asset_url}}" alt="{{settings.alt1}}" />
+    </div>
 
-</div>
-<div class="row">
-<div class="giftguid col-12 col-md-5 d-flex flex-column justify-content-center p-5 gap-4">
-<h2>{{settings.head}}</h2>
-<p>{{settings.giftpar}}</p>
-<a href ="{{settings.btnurl}}" class="d-flex justify-content-center align-items-center gap-2" > {{settings.btntext}}
-<svg width="27" height="12" viewBox="0 0 27 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.75 4.77295L7.83954e-08 4.77295L-7.83954e-08 6.27295L0.75 6.27295L0.75 4.77295ZM26.7876 6.05328C27.0805 5.76039 27.0805 5.28551 26.7876 4.99262L22.0146 0.21965C21.7217 -0.0732435 21.2468 -0.0732435 20.9539 0.21965C20.6611 0.512543 20.6611 0.987417 20.9539 1.28031L25.1966 5.52295L20.9539 9.76559C20.6611 10.0585 20.6611 10.5334 20.9539 10.8263C21.2468 11.1191 21.7217 11.1191 22.0146 10.8263L26.7876 6.05328ZM0.75 6.27295L26.2572 6.27295L26.2572 4.77295L0.75 4.77295L0.75 6.27295Z" fill="white"/>
-</svg>
+    <div class="mainimage d-flex flex-column justify-content-center align-items-center">
 
- </a>
-</div>
-<div class="subimage col-12 col-md-7">
-<img src="{{'Frame (2).png'| asset_url}}" alt="{{settings.alt}}" />
-</div>
+      <img
+        src="{{ 'Frame (1).png' | asset_url }}"
+        alt="{{ settings.alt1 }}"
+      />
 
-</div>
-{%comment%}
-end of the section
-{%endcomment%}
-<div class="endofsection d-flex justify-content-center align-items-center">
-<p >{{settings.endofsectionpargraph}}</p>
-</div>
-</div>
+      <a
+        href="{{ settings.btnurl }}"
+        class="d-flex justify-content-center align-items-center gap-2 d-md-none"
+      >
+        {{ settings.btntext }}
 
+        <svg
+          width="27"
+          height="12"
+          viewBox="0 0 27 12"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0.75 4.77295L7.83954e-08 4.77295L-7.83954e-08 6.27295L0.75 6.27295L0.75 4.77295ZM26.7876 6.05328C27.0805 5.76039 27.0805 5.28551 26.7876 4.99262L22.0146 0.21965C21.7217 -0.0732435 21.2468 -0.0732435 20.9539 0.21965C20.6611 0.512543 20.6611 0.987417 20.9539 1.28031L25.1966 5.52295L20.9539 9.76559C20.6611 10.0585 20.6611 10.5334 20.9539 10.8263C21.2468 11.1191 21.7217 11.1191 22.0146 10.8263L26.7876 6.05328ZM0.75 6.27295L26.2572 6.27295L26.2572 4.77295L0.75 4.77295L0.75 6.27295Z"
+            fill="currentColor"
+          />
+        </svg>
 
+      </a>
+
+    </div>
+
+    <div class="shop">
+
+      <div class="row">
+
+        <div class="giftguid col-12 col-md-5 d-flex flex-column justify-content-center p-5 gap-3">
+
+          <h2>{{ settings.head }}</h2>
+
+          <p>{{ settings.giftpar }}</p>
+
+          <a
+            href="{{ settings.btnurl }}"
+            class="d-flex justify-content-center align-items-center gap-2"
+          >
+            {{ settings.btntext }}
+
+            <svg
+              width="27"
+              height="12"
+              viewBox="0 0 27 12"
+              fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.75 4.77295L7.83954e-08 4.77295L-7.83954e-08 6.27295L0.75 6.27295L0.75 4.77295ZM26.7876 6.05328C27.0805 5.76039 27.0805 5.28551 26.7876 4.99262L22.0146 0.21965C21.7217 -0.0732435 21.2468 -0.0732435 20.9539 0.21965C20.6611 0.512543 20.6611 0.987417 20.9539 1.28031L25.1966 5.52295L20.9539 9.76559C20.6611 10.0585 20.6611 10.5334 20.9539 10.8263C21.2468 11.1191 21.7217 11.1191 22.0146 11.1191L26.7876 6.05328ZM0.75 6.27295L26.2572 6.27295L26.2572 4.77295L0.75 4.77295L0.75 6.27295Z"
+                fill="currentColor"
+              />
+            </svg>
+
+          </a>
+
+        </div>
+
+        <div class="subimage col-12 col-md-7">
+
+          <img
+            src="{{ 'Frame (2).png' | asset_url }}"
+            alt="{{ settings.alt }}"
+            class="p-0"
+          />
+
+        </div>
+
+      </div>
+
+    </div>
+
+    {% comment %}
+      end of the section
+    {% endcomment %}
+
+    <div class="endofsection d-flex justify-content-center align-items-center">
+
+      <p>{{ settings.endofsectionpargraph }}</p>
+
+    </div>
+
+  </div>
 
 </section>
 
 
 {% style %}
-.mainsec{
-    background-color:white;
-}
-.mainsec a{
-    color:white;
-    background-color:black;
-    padding:10px 30px;
-    text-transform:uppercase;
-    position:relative;
-    overflow:hidden;
-    z-index:1;
-    transition:.5s;
-}
-.mainsec a svg {
-    
-    fill: currentColor;
-}
-.mainsec a::before{
-    content:"";
-    width:100%;
-    height:100%;
-    position:absolute;
-    background-color:#FFF544;
-    left:-100%;
-    top:0;
-    z-index:-1;
-    transition:.5s;
 
+.shop.row {
+  align-items: flex-start;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.mobilescreen h2 {
+  font-Size: 30px;
+  font-weight: 500;
+  line-height: 100%;
+  font-family: 'Jost', sans-serif;
+}
+
+.mobilescreen p {
+  font-Size: 16px;
+  font-weight: 400;
+  line-height: 130%;
+  font-family: 'Jost', sans-serif;
+  width: 340px;
+  text-align: center;
+}
+
+.mainimage a {
+  margin-top: -100px;
+  text-align: center;
+}
+
+.mainsec {
+  background-color: white;
+}
+
+.mainsec a {
+  color: {{ settings.btntextcolor }};
+  background-color: {{ settings.btnbgcolor }};
+  font-size: {{ settings.btnfontsize }}px;
+  padding: 13px 20px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: .5s;
+  width: 220px;
+}
+
+.mainsec a::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #FFF544;
+  left: -100%;
+  top: 0;
+  z-index: -1;
+  transition: .5s;
+}
+
+.mainsec a:hover {
+  color: black;
+  fill: black;
+}
+
+.mainsec a:hover::before {
+  left: 0;
+}
+
+.giftguid h2 {
+  font-weight: 500;
+  font-size: 70px;
+  line-height: 100%;
+  font-family: "Jost", sans-serif;
+}
+
+.giftguid p {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 140%;
+  font-family: "Jost", sans-serif;
+}
+
+div.endofsection {
+  background-color: #F5F5F5;
+  padding: 10px 50px;
+}
+
+div.endofsection p {
+  font-Size: 16px;
+  line-height: 13.42px;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 767px) {
+
+  div.endofsection {
+    fontSize: 14px;
+    line-height: 13.42px;
+  }
+
+  div.shop {
+    display: none;
+  }
 
 }
-.mainsec a:hover{
-    color:black;
-    fill:black;
-}
-.mainsec a:hover::before{
-    left:0;
-}
- h2{
-    font-weight:500;
-    font-size:70px;
-    line-height:100%;
-font-family: "Jost" ,sans-serif;
- }
- p{font-weight:400;
-    font-size:20px;
-    line-height:140%;
-font-family: "Jost" ,sans-serif;
 
- }
- div.endofsection{
-    background-color:#F5F5F5;
- }
- div.endofsection p{
-    fontSize:16px;
-    line-height:13.42px;
+@media screen and (min-width: 768px) and (max-width: 991px) {
 
- }
+  .giftguid {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .giftguid h2 {
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 100%;
+    font-family: "Jost", sans-serif;
+  }
+
+  .giftguid p {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 140%;
+    font-family: "Jost", sans-serif;
+  }
+
+}
 
 {% endstyle %}
+
+
 {% schema %}
-{
-"name":"bannersection",
-"settings":[
-
-
-
-
-
-
-
 
 {
-    "type":"header",
-    "content":"mainimage"
-},
+  "name": "bannersection",
 
-{
-   "type":"image_picker",
-   "id":"mainimage",
-   "label":"mainimage"
-},
-{"type":"text",
-"id" :"alt1",
-"label":"setimagealterantive"
+  "settings": [
 
-},
-{
-"type":"header",
-"content":"mainsectionhead"
-},
-{
-"type":"text",
-"id":"head",
-"label":"mainsechead",
-"default":"The Gift Guide"
-},
-{
-  "type":"range",
+    {
+      "type": "header",
+      "content": "mainimage"
+    },
 
-"id" :"headfontsize",
-"label":"fontsize",
-"min":16,
-"max":75,
-"step":1,
-"unit":"px",
-"default":16
-},
-{
-"type":"header",
-"content":"button"
-},
-{
-    "type":"text",
-    "id":"btntext",
-    "label":"buttonName",
-    "default":"shop now"
+    {
+      "type": "image_picker",
+      "id": "mainimage",
+      "label": "mainimage"
+    },
 
-},
-{
-    "type":"color",
-    "id":"btntextcolor",
-    "label":"textbuttonColor"
-},
+    {
+      "type": "text",
+      "id": "alt1",
+      "label": "setimagealterantive"
+    },
 
-{
-    "type":"color",
-    "id":"btnbgcolor",
-    "label":"buttonbgColor"
-},
-{
-    "type":"url",
-    "id":"btnurl",
-    "label":"buttonlink"
-},
+    {
+      "type": "header",
+      "content": "mainsectionhead"
+    },
 
-{"type":"range",
-"id" :"btnfontsize",
-"label":"fontsize",
-"min":16,
-"max":75,
-"step":1,
-"unit":"px",
-"default":16
-},
+    {
+      "type": "text",
+      "id": "head",
+      "label": "mainsechead",
+      "default": "The Gift Guide"
+    },
 
+    {
+      "type": "range",
+      "id": "headfontsize",
+      "label": "fontsize",
+      "min": 16,
+      "max": 75,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
 
-{
-"type":"header",
-"content":"mainpargraph"
-},
-{
-    "type":"textarea",
-    "id":"giftpar",
-    "label":"mainpargraph",
-    "default":"Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season."
+    {
+      "type": "header",
+      "content": "button"
+    },
 
-},
-{
-    "type":"color",
-    "id":"mainparcolor",
-    "label":"pargraphColor"
-},
+    {
+      "type": "text",
+      "id": "btntext",
+      "label": "buttonName",
+      "default": "shop now"
+    },
 
-{"type":"range",
-"id" :"pargrapfontsize",
-"label":"fontsize",
-"min":16,
-"max":75,
-"step":1,
-"unit":"px",
-"default":40},
+    {
+      "type": "color",
+      "id": "btntextcolor",
+      "label": "textbuttonColor",
+      "default": "#FFFFFF"
+    },
 
+    {
+      "type": "color",
+      "id": "btnbgcolor",
+      "label": "buttonbgColor",
+      "default": "#000000"
+    },
 
+    {
+      "type": "url",
+      "id": "btnurl",
+      "label": "buttonlink"
+    },
 
-{
-   "type":"image_picker" ,
-   "id":"subimage",
-   "label":"subimage"
-},
+    {
+      "type": "range",
+      "id": "btnfontsize",
+      "label": "fontsize",
+      "min": 16,
+      "max": 75,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
 
-{"type":"text",
-"id" :"alt",
-"label":"setimagealterantive2"
+    {
+      "type": "header",
+      "content": "mainpargraph"
+    },
 
-},
-{
-  "type": "header",
-  "content": "End Of Section"
-},
-{
-  "type": "textarea",
-  "id": "endofsectionpargraph",
-  "label": "End Of Section Paragraph",
-  "default": "Discover our collection and find the perfect gift."
-}
+    {
+      "type": "textarea",
+      "id": "giftpar",
+      "label": "mainpargraph",
+      "default": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season."
+    },
 
-],
-"presets":[{
-    "name":"bannersection"
-}]
+    {
+      "type": "color",
+      "id": "mainparcolor",
+      "label": "pargraphColor"
+    },
+
+    {
+      "type": "range",
+      "id": "pargrapfontsize",
+      "label": "fontsize",
+      "min": 16,
+      "max": 75,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    },
+
+    {
+      "type": "image_picker",
+      "id": "subimage",
+      "label": "subimage"
+    },
+
+    {
+      "type": "text",
+      "id": "alt",
+      "label": "setimagealterantive2"
+    },
+
+    {
+      "type": "header",
+      "content": "End Of Section"
+    },
+
+    {
+      "type": "textarea",
+      "id": "endofsectionpargraph",
+      "label": "End Of Section Paragraph",
+      "default": "Discover our collection and find the perfect gift."
+    }
+
+  ],
+
+  "presets": [
+    {
+      "name": "bannersection"
+    }
+  ]
 }
 
 {% endschema %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
