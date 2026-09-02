@@ -45,7 +45,7 @@
 
       <div class="btn-logo d-flex flex-column">
 
-        <p class="m-0">
+        <p class="m-0 text-center">
           {{ settings.headerpar }}
         </p>
 
@@ -164,7 +164,7 @@
     width: 100%;
     background-color: {{ settings.backgroundcolor }};
     padding: {{ settings.padding }}px;
-    gap: 80px;
+    gap:100px;
   }
 
 
@@ -307,15 +307,22 @@
 
    
   .{{ section.id }} .header {
-    padding: {{ settings.padding }}px 16px;
+    padding: {{ settings.padding }}px 10px;
     display: flex;
     align-items: center;
-    gap: 25px;
+   
   }
 
   .{{ section.id }} .header h4 {
     width: auto;
     margin: 0;
+     font-size: 18px;
+    white-space: nowrap;
+    
+  }
+
+  .menu{
+      transform: translateX(-10px);
   }
 
 }
