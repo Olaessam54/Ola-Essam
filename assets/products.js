@@ -4,69 +4,91 @@ const icons = document.querySelectorAll(".product-icon");
 
 const card = document.querySelector(".product-details");
 
-const closeButton = document.querySelector(".close-product");
-
 const image = document.querySelector(".details-image");
 const title = document.querySelector(".details-title");
 const price = document.querySelector(".details-price");
 const description = document.querySelector(".details-description");
 
-const colorSelect = document.querySelector(".details-color");
+const colorOptions = document.querySelector(".color-options");
 
 const sizeInput = document.querySelector(".size-input");
-const arrow = document.querySelector(".arrow");
 const options = document.querySelector(".options");
+const arrow = document.querySelector(".arrow");
+
+const closeButton = document.querySelector(".close-product");
 
 
-/* Open product */
+// =========================
+// Open Product
+// =========================
 
 icons.forEach((icon) => {
 
   icon.addEventListener("click", () => {
 
-    const index = icon.dataset.product;
-    
+    // Product data
 
-console.log("index =", index);
-console.log("productsData =", productsData);
-console.log("product =", productsData[index]);
+    const productTitle = icon.dataset.title;
+    const productPrice = icon.dataset.price;
+    const productImage = icon.dataset.image;
+    const productDescription = icon.dataset.description;
 
-    const product = productsData[index];
-    
+    const colors = JSON.parse(icon.dataset.colors || "[]");
+      console.log("Product:", productTitle);
+      console.log("Colors:", colors);
 
-    console.log(product);
-
-    image.src = product.image;
-    image.alt = product.title;
-
-    title.textContent = product.title;
-    price.textContent = product.price;
-    description.textContent = product.description;
+    const sizes = JSON.parse(icon.dataset.sizes || "[]");
 
 
-    /* Color */
+    // =========================
+    // Product Information
+    // =========================
 
-    colorSelect.innerHTML = "";
+    image.src = productImage;
+    image.alt = productTitle;
 
-    product.colors.forEach((color) => {
+    title.textContent = productTitle;
 
-      const option = document.createElement("option");
+    price.textContent = productPrice;
 
-      option.value = color;
-      option.textContent = color;
+    description.textContent = productDescription;
 
-      colorSelect.appendChild(option);
+
+    // =========================
+    // Colors
+    // =========================
+
+    colorOptions.innerHTML = "";
+
+    colors.forEach((color) => {
+
+      const colorBox = document.createElement("button");
+
+      colorBox.type = "button";
+
+      colorBox.classList.add("color-box");
+
+      colorBox.textContent = color;
+
+      colorBox.dataset.color = color;
+
+      // Border color comes from Shopify
+      colorBox.style.borderColor = color;
+
+      colorOptions.appendChild(colorBox);
 
     });
 
 
-    /* Size */
+    // =========================
+    // Sizes
+    // =========================
 
     options.innerHTML = "";
 
     sizeInput.value = "";
 
-    product.sizes.forEach((size) => {
+    sizes.forEach((size) => {
 
       const option = document.createElement("div");
 
@@ -81,25 +103,79 @@ console.log("product =", productsData[index]);
     });
 
 
-    /* Show card */
+    // Close size dropdown
 
-    card.classList.add("active");
+    options.classList.remove("open");
 
-  });
-
-});
+    arrow.classList.remove("open");
 
 
-/* Close */
+    // Remove previous selected color
 
-closeButton.addEventListener("click", () => {
+    document.querySelectorAll(".color-box").forEach((box) => {
 
-  card.classList.remove("active");
+      box.classList.remove("selected");
 
-});
+    });
 
 
-/* Open size options */
+    // Open product details card
+const product = icon.closest(".product");
+const list = document.querySelector(".product-list");
+
+const productRect = product.getBoundingClientRect();
+const listRect = list.getBoundingClientRect();
+
+const cardWidth = 331;
+const gap = 20;
+
+const spaceRight = window.innerWidth - productRect.right;
+const spaceLeft = productRect.left;
+
+
+// إزالة أي transform قديم
+card.style.transform = "";
+
+
+// مكان الكارد عموديًا
+card.style.top =
+  productRect.top - listRect.top + "px";
+
+
+// على اليمين
+if (spaceRight >= cardWidth + gap) {
+
+  card.style.left =
+    productRect.right - listRect.left + gap + "px";
+
+}
+
+
+// على الشمال
+else if (spaceLeft >= cardWidth + gap) {
+
+  card.style.left =
+    productRect.left - listRect.left - cardWidth - gap + "px";
+
+}
+
+
+// لو مفيش مساحة
+else {
+
+  card.style.left = "50%";
+
+  card.style.transform =
+    "translateX(-50%)";
+
+}
+
+card.classList.add("active");
+  })})
+
+// =========================
+// Size Dropdown
+// =========================
 
 arrow.addEventListener("click", () => {
 
@@ -110,13 +186,73 @@ arrow.addEventListener("click", () => {
 });
 
 
-/* Select size */
+// =========================
+// Select Size
+// =========================
 
 options.addEventListener("click", (e) => {
 
   if (e.target.classList.contains("option")) {
 
     sizeInput.value = e.target.dataset.value;
+
+    options.classList.remove("open");
+
+    arrow.classList.remove("open");
+
+  }
+
+});
+
+
+// =========================
+// Select Color
+// =========================
+
+colorOptions.addEventListener("click", (e) => {
+
+  if (e.target.classList.contains("color-box")) {
+
+    document.querySelectorAll(".color-box").forEach((box) => {
+
+      box.classList.remove("selected");
+
+    });
+
+    e.target.classList.add("selected");
+
+  }
+
+});
+
+
+// =========================
+// Close Product Card
+// =========================
+
+closeButton.addEventListener("click", () => {
+
+  card.classList.remove("active");
+
+  options.classList.remove("open");
+
+  arrow.classList.remove("open");
+
+});
+
+
+// =========================
+// Close when clicking outside
+// =========================
+
+document.addEventListener("click", (e) => {
+
+  if (
+    !card.contains(e.target) &&
+    !e.target.closest(".product-icon")
+  ) {
+
+    card.classList.remove("active");
 
     options.classList.remove("open");
 
